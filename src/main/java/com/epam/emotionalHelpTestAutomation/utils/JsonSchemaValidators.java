@@ -5,15 +5,14 @@ import com.github.fge.jsonschema.SchemaVersion;
 import com.github.fge.jsonschema.cfg.ValidationConfiguration;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import io.restassured.module.jsv.JsonSchemaValidator;
+import lombok.experimental.UtilityClass;
 
 import java.io.File;
 
-public final class JsonSchemaValidators {
+@UtilityClass
+public class JsonSchemaValidators {
 
-    private JsonSchemaValidators() {
-    }
-
-    public static void validateResponseAgainstJsonSchema(String path) {
+    public void validateResponseAgainstJsonSchema(String path) {
         JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory
                 .newBuilder()
                 .setValidationConfiguration(ValidationConfiguration.newBuilder()
