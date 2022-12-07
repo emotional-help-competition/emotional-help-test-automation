@@ -12,7 +12,7 @@ import java.util.Map;
 @UtilityClass
 public class RequestUtils {
 
-    private final Logger log = LoggerFactory.getLogger(ResponseUtils.class);
+    private final Logger LOG = LoggerFactory.getLogger(ResponseUtils.class);
     public ValidatableResponse response;
 
     public ValidatableResponse getResponse() {
@@ -20,7 +20,7 @@ public class RequestUtils {
     }
 
     public void get(String endpoint) {
-        log.info("Get request is in progress...");
+        LOG.info("Get request is in progress...");
         response = RestAssured
                 .given()
                 .spec(Specifications.getRequestSpecification())
@@ -30,7 +30,7 @@ public class RequestUtils {
     }
 
     public void get(String endpoint, Map<String, Object> queryParams) {
-        log.info("Get request with query params is in progress...");
+        LOG.info("Get request with query params is in progress...");
         response = RestAssured
                 .given()
                 .spec(Specifications.getRequestSpecification())
@@ -41,7 +41,7 @@ public class RequestUtils {
     }
 
     public void post(String endpoint, Object body) {
-        log.info("Post request with body is in progress...");
+        LOG.info("Post request with body is in progress...");
         response = RestAssured
                 .given()
                 .spec(Specifications.getRequestSpecification())
@@ -52,7 +52,7 @@ public class RequestUtils {
     }
 
     public void patch(String endpoint, Object body) {
-        log.info("Patch request with body is in progress...");
+        LOG.info("Patch request with body is in progress...");
         response = RestAssured
                 .given()
                 .spec(Specifications.getRequestSpecification())
@@ -63,7 +63,7 @@ public class RequestUtils {
     }
 
     public void delete(String endpoint) {
-        log.info("Delete request is in progress...");
+        LOG.info("Delete request is in progress...");
         response = RestAssured
                 .given()
                 .spec(Specifications.getRequestSpecification())
