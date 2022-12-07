@@ -11,7 +11,7 @@ import java.util.List;
 @UtilityClass
 public class ResponseUtils {
 
-    private final Logger log = LoggerFactory.getLogger(ResponseUtils.class);
+    private final Logger LOG = LoggerFactory.getLogger(ResponseUtils.class);
 
     public ValidatableResponse getResponse() {
         return RequestUtils.getResponse().spec(Specifications.getResponseSpecification());
