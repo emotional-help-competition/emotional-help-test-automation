@@ -40,16 +40,22 @@ public class TestPage extends BasePage {
         return resultButton.isDisplayed();
     }
 
-    public void fillWithRandomAnswers() {
+    private boolean checkIfLastQuestionAnswered(){
+        return $(By.xpath("(//input[@class=\"container__input ng-dirty ng-valid ng-touched\"])[last()]")).shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean fillWithRandomAnswers() {
         Random random = new Random();
-        for (int i = 1; i < questionsAnswerOptions.size(); i++) {
+        for (int i = 0; i  < questionsAnswerOptions.size(); i++) {
             int index = random.nextInt(5) + 1;
-            questionsAnswerOptions.get(i).$(By.xpath("(//div[@class=\"container__group\"]/div[" + index + "])" + "[" + i + "]")).click();
+            questionsAnswerOptions.get(i).$(By.xpath("(//div[@class=\"container__group\"]/div[" + index + "])" + "[" +(i+1) + "]")).click();
         }
+
+        return checkIfLastQuestionAnswered();
     }
 
     public ResultPage openResultPage() {
-        resultButton.click();
+        resultButton.shouldBe(Condition.visible).click();
         return new ResultPage();
     }
 

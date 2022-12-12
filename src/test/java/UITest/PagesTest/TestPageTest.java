@@ -19,12 +19,10 @@ public class TestPageTest {
     }
 
     @Test
-    public void fillAllQuestions() {
+    public void fillAllQuestions() throws InterruptedException {
         if(tp.questionsLoaded()){
             tp.fillWithRandomAnswers();
-            tp.openResultPage();
         }
-
     }
 
 }
