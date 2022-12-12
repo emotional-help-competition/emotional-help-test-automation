@@ -19,7 +19,7 @@ public class TestPageTest {
     }
 
     @Test
-    public void fillAllQuestions() throws InterruptedException {
+    public void fillAllQuestions(){
         if(tp.questionsLoaded()){
             tp.fillWithRandomAnswers();
         }

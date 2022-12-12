@@ -9,25 +9,24 @@ import org.testng.annotations.Test;
 public class QuizzesPageTest {
 
     private QuizzesPage qp = new HomePage().openQuizzesPage();
-    private int numberOfQuizzes = 3;
+    private int numberOfQuizzes = 2;
 
-    @Test
+    @Test(priority = 1)
     public void quizzesPageLoaded() {
 
         Assert.assertTrue(qp.footerLogoVisible(), "Footer Logo is not displayed");
         Assert.assertTrue(qp.quizzesChoiceLabelDisplayed(), "Quizzes choice not displayed");
         this.numberOfQuizzes = qp.numberOfQuizzesAvailable();
-        System.out.println("Helloo:" + numberOfQuizzes);
 
         Assert.assertTrue(numberOfQuizzes >= 1, "No quizzes found");
     }
 
-    @Test
-    public void openAllTests() {
-        for (int i = 1; i <= numberOfQuizzes; i++) {
-            qp.openTestPage(i);
+    @Test(priority = 2)
+    public void openAllTestPages() {
+        for (int i = 0; i < numberOfQuizzes; i++) {
+            qp.openTestPage(i+1);
             String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-            Assert.assertTrue(currentUrl.contains("quizz/" + i), "The test with index quizz/" + i + " does not exists");
+            Assert.assertTrue(currentUrl.contains("quizz/" + (i+1)), "The test with index quizz/" + (i+1) + " does not exists");
         }
     }
 }

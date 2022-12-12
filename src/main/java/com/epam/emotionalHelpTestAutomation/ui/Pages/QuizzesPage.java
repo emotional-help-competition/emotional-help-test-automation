@@ -5,12 +5,15 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.epam.emotionalHelpTestAutomation.ui.BasePage;
 import org.openqa.selenium.By;
+
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class QuizzesPage extends BasePage {
 
     SelenideElement footerLogo = $(By.xpath("//div[@class=\"container__logo\"]"));
-    SelenideElement quizzesChoice = $(By.xpath("(//p[@class=\"container__text container__text--title\"])[last()]")).should(Condition.visible);
+    SelenideElement quizzesChoice = $(By.xpath("//p[@class=\"container__text container__text--title\"]")).shouldBe(Condition.be(Condition.visible),Duration.ofMillis(3000));
     ElementsCollection numberOfQuizzes = $$(By.xpath("//p[@class=\"container__text container__text--title\"]"));
 
 
