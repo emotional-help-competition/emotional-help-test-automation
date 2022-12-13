@@ -31,4 +31,11 @@ public class ResultPage extends BasePage {
         copyButton.click();
     }
 
+    public boolean findEmotionByName(String emotion){
+        if(emotionsLabelVisible()) {
+            return $(By.xpath("//span[contains(text(),'" + emotion + "')]")).isDisplayed();
+        }
+            return false;
+    }
+
 }
